@@ -1,14 +1,18 @@
 package com.vermeg.main;
 
+import com.vermeg.dao.implementation.BookDaoImp;
+import com.vermeg.dao.manipulateDao.Interface.BookDao;
+import com.vermeg.model.Book;
 import com.vermeg.model.Order;
 
+import java.sql.SQLException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MainClasse {
 
     public static void main(String[] args) {
-        double price = 0;
+        /*double price = 0;
         int quantity = 0;
         boolean verify = true; // verify if the input is correct or not.
         boolean err1 = false; // verify if the first input is correct.
@@ -40,6 +44,20 @@ public class MainClasse {
                 System.err.println("You should enter a number");
             }
         }
-        sc.close();
+        sc.close();*/
+
+        BookDao bookDao = new BookDaoImp();
+        Book book;
+        try {
+            book = new Book();
+            book.setTitle("title");
+            book.setPrice(10.0);
+            book.setReleaseDate("release");
+            book.setAuthor("author");
+            bookDao.add(book);
+            System.out.println(bookDao.find(1));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
