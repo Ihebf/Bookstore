@@ -1,6 +1,6 @@
-package Main;
+package com.vermeg.main;
 
-import FirstStep.Produit;
+import com.vermeg.model.Order;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -8,7 +8,6 @@ import java.util.Scanner;
 public class MainClasse {
 
     public static void main(String[] args) {
-
         double price = 0;
         int quantity = 0;
         boolean verify = true; // verify if the input is correct or not.
@@ -34,7 +33,7 @@ public class MainClasse {
                     price = sc.nextDouble();
                     err2=true;
                 }
-                System.out.println("the Total price is : "+ Produit.calculateTotalPrice(quantity,price));
+                System.out.println("the Total price is : "+ Order.calculateTotalPrice(quantity,price));
 
                 verify = false;
             } catch(InputMismatchException e) {
